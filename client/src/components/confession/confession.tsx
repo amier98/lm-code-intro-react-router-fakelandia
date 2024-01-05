@@ -1,14 +1,58 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import ConfessionDetails from "./confessionDetails";
 import ConfessionReasonForContact from "./confessionReasonContact";
 import ConfessionSubject from "./confessionSubject";
+import { MisdeamnorContext } from "../layout/mainLayout";
+import {
+  Misdemeanour,
+  MisdemeanourKind,
+} from "../../types/misdemeanours.types";
 
 const ConfessionPage: React.FC = () => {
   const [subject, setSubject] = useState("");
   const [reason, setReason] = useState("");
   const [confessionDetails, setConfessionDetails] = useState("");
+  const [message, setMessage] = useState("");
+
+  const data = useContext(MisdeamnorContext);
+
+  const addNewMisdemeanour = (reasonForContact: string) => {
+    const newMisdemeanour: Misdemeanour = {
+      citizenId: Math.floor(15 + Math.random() * 20 * Math.random() * 1000),
+      misdemeanour: reasonForContact as MisdemeanourKind,
+      date: new Date().toLocaleDateString(),
+    };
+    data?.push(newMisdemeanour);
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    try {
+      const result = await fetch("http://localhost:8080/api/confess", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          subject: subject,
+          reason: reason,
+          details: confessionDetails,
+        }),
+      });
+
+      const res = await result.json();
+
+      if (res.success && res.justTalked === false) {
+        addNewMisdemeanour(reason);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
-    <form className="form__container">
+    <form className="form__container" onSubmit={handleSubmit}>
       <p>
         It's very difficult to catch people commiting misdemeanours so we
         appreciate it when citizens confess to us directly
