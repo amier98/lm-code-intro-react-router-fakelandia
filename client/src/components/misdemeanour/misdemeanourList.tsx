@@ -1,9 +1,10 @@
-import useMisdeamnorContext from "../hooks/useContextMisdeamenour";
+import { useContext } from "react";
 import MisdeamnorItem from "./misdeamnour-Item";
 import MisdeamenaorTitle from "./misdemenourTitle";
+import { MisdeamnorContext } from "../layout/mainLayout";
 
 const MisdemeanourList: React.FC = () => {
-  const data = useMisdeamnorContext();
+  const data = useContext(MisdeamnorContext);
 
   return (
     <>

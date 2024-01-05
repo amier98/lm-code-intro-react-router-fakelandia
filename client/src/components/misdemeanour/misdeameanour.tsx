@@ -1,9 +1,8 @@
 import MisdemeanourList from "./misdemeanourList";
 
 const Misdeamenaors: React.FC = () => {
-  return (
+ return (
     <>
-      {/* {loading && <p>Loading...</p>} */}
       <MisdemeanourList />
     </>
   );

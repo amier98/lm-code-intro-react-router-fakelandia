@@ -3,11 +3,12 @@ import { Misdemeanour } from "../../types/misdemeanours.types";
 
 function useMisdeamnorContext() {
   const [data, setData] = useState<Misdemeanour[]>();
+  const url = "http://localhost:8080/api/misdemeanours/3";
 
   useEffect(() => {
     const fetchAPI = async () => {
       try {
-        const result = await fetch("http://localhost:8080/api/misdemeanours/3");
+        const result = await fetch(url);
         const res = await result.json();
         setData(res.misdemeanours);
       } catch (error) {
