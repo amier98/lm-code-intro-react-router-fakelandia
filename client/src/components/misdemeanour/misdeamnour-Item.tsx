@@ -1,17 +1,22 @@
-import { Misdemeanour } from "../../types/misdemeanours.types";
+import { MisdemeanourKind } from "../../types/misdemeanours.types";
 
-const MisdeamnorItemProp = {
-  rudeness: "🤪",
-  lift: "🗣",
-  united: "😈",
-  vegetables: "🥗",
-};
+export interface MisdeamenaorsProps {
+  citizenId: number;
+  misdemeanour: MisdemeanourKind;
+  date: string;
+}
 
-const MisdeamnorItem: React.FC<Misdemeanour> = ({
+const MisdeamnorItem: React.FC<MisdeamenaorsProps> = ({
   citizenId,
   misdemeanour,
   date,
 }) => {
+  const MisdeamnorItemProp = {
+    rudeness: "🤪",
+    lift: "🗣",
+    united: "😈",
+    vegetables: "🥗",
+  };
   const randomId = Math.floor(Math.random() * 100 + 1);
 
   return (

@@ -1,22 +1,14 @@
 import { Outlet } from "react-router-dom";
-import { createContext, useEffect, useState } from "react";
-import { Misdemeanour } from "../../types/misdemeanours.types";
-import useMisdeamnorContext from "../hooks/useContextMisdeamenour";
+import { MisdeamnorFilterProvider } from "../hooks/filterMisdemeanourContext";
 
-export const MisdeamnorContext = createContext<Misdemeanour[]>([]);
-
-function MainLayout() {
-  const data = useMisdeamnorContext();
-
+const MainLayout: React.FC = () => {
   return (
-    <>
-      <main>
-        <MisdeamnorContext.Provider value={data || []}>
-          <Outlet />
-        </MisdeamnorContext.Provider>
-      </main>
-    </>
+    <main>
+      <MisdeamnorFilterProvider>
+        <Outlet />
+      </MisdeamnorFilterProvider>
+    </main>
   );
-}
+};
 
 export default MainLayout;

@@ -1,15 +1,15 @@
-import { useContext } from "react";
 import MisdeamnorItem from "./misdeamnour-Item";
 import MisdeamenaorTitle from "./misdemenourTitle";
-import { MisdeamnorContext } from "../layout/mainLayout";
+import { useMisdeamnorFilter } from "../hooks/useMisdeamnourFilter";
 
 const MisdemeanourList: React.FC = () => {
-  const data = useContext(MisdeamnorContext);
+  const { filteredData } = useMisdeamnorFilter();
+  console.log(filteredData);
 
   return (
     <>
       <MisdeamenaorTitle />
-      {data?.map((sins) => (
+      {filteredData?.map((sins) => (
         <MisdeamnorItem
           key={sins.citizenId}
           citizenId={sins.citizenId}

@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import ConfessionDetails from "./confessionDetails";
 import ConfessionReasonForContact from "./confessionReasonContact";
 import ConfessionSubject from "./confessionSubject";
-import { MisdeamnorContext } from "../layout/mainLayout";
+
 import {
   Misdemeanour,
   MisdemeanourKind,
@@ -13,7 +13,7 @@ const ConfessionPage: React.FC = () => {
   const [reason, setReason] = useState("");
   const [confessionDetails, setConfessionDetails] = useState("");
 
-  const data = useContext(MisdeamnorContext);
+  // const data = useContext(MisdeamnorContext);
 
   const addNewMisdemeanour = (reasonForContact: string) => {
     const newMisdemeanour: Misdemeanour = {
@@ -21,7 +21,7 @@ const ConfessionPage: React.FC = () => {
       misdemeanour: reasonForContact as MisdemeanourKind,
       date: new Date().toLocaleDateString(),
     };
-    data?.push(newMisdemeanour);
+    //  data?.push(newMisdemeanour);
   };
 
   const enabled = subject.length > 10 && confessionDetails.length > 15;

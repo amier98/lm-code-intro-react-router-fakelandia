@@ -2,6 +2,10 @@ import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import HomePage from "./homePage";
 describe("App", () => {
+  //   it("renders the page", () => {
+  //     <HomePage />;
+  //     expect(<HomePage />).toBeInTheDocument();
+  //   });
   it("has the title for homepage", () => {
     render(<HomePage />);
     const text = screen.getByText(
