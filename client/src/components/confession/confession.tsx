@@ -12,7 +12,6 @@ const ConfessionPage: React.FC = () => {
   const [subject, setSubject] = useState("");
   const [reason, setReason] = useState("");
   const [confessionDetails, setConfessionDetails] = useState("");
-  const [message, setMessage] = useState("");
 
   const data = useContext(MisdeamnorContext);
 
@@ -24,6 +23,8 @@ const ConfessionPage: React.FC = () => {
     };
     data?.push(newMisdemeanour);
   };
+
+  const enabled = subject.length > 10 && confessionDetails.length > 15;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -73,7 +74,9 @@ const ConfessionPage: React.FC = () => {
         confessionDetails={confessionDetails}
         onChangeConfessionDetail={(value) => setConfessionDetails(value)}
       />
-      <button type="submit">confess</button>
+      <button type="submit" disabled={!enabled}>
+        confess
+      </button>
     </form>
   );
 };
