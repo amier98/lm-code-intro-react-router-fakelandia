@@ -57,7 +57,8 @@
   grid-gap: 1rem;
   padding: 3rem;
   justify-content: space-evenly;
-  /* border: 2px solid black; */
+  border: 2px solid black;
+  border-radius: 1rem;
 }
 
 .form__container {
