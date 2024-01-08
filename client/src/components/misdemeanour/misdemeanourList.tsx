@@ -9,6 +9,7 @@ const MisdemeanourList: React.FC = () => {
   return (
     <>
       <MisdeamenaorTitle />
+      {!filteredData && <p className="loading__text">Loading data...</p>}
       {filteredData?.map((sins) => (
         <MisdeamnorItem
           key={sins.citizenId}
