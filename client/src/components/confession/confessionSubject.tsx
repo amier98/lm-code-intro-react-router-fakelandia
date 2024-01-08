@@ -11,6 +11,7 @@ const ConfessionSubject: React.FC<ConfessionSubjectProps> = ({
     <>
       <label htmlFor="confessionSubject">Subject:</label>
       <input
+        id="confessionSubject"
         type="text"
         value={confessionSubject}
         onChange={(e) => onChangeConfessionSubject(e.target.value)}

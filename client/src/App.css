@@ -33,6 +33,10 @@
   list-style-type: none;
 }
 
+.active {
+  color: deeppink;
+}
+
 .Nav__Links {
   display: flex;
   padding: 1rem;
@@ -62,6 +66,10 @@
   align-items: center;
   padding: 2rem;
   gap: 1rem;
+}
+
+.rule__text {
+  background-color: red;
 }
 
 @keyframes logo-spin {

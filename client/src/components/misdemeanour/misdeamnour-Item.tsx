@@ -17,23 +17,23 @@ const MisdeamnorItem: React.FC<MisdeamenaorsProps> = ({
     united: "😈",
     vegetables: "🥗",
   };
-  const randomId = Math.floor(Math.random() * 100 + 1);
+  const randomId = Math.floor(Math.random() * 1000 + 1);
 
   return (
     <div className="grid__container">
-      <div className="item">
+      <div>
         <p>{citizenId}</p>
       </div>
-      <div className="item">
+      <div>
         <p>{date}</p>
       </div>
-      <div className="item">
+      <div>
         <p>
           {MisdeamnorItemProp[misdemeanour]}
           {misdemeanour}
         </p>
       </div>
-      <div className="item">
+      <div>
         <img src={`https://picsum.photos/id/${randomId}/100/100`} />
       </div>
     </div>

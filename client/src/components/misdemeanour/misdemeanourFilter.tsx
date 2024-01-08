@@ -6,9 +6,8 @@ const MisdeamnorFilter: React.FC = () => {
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedFilter(e.target.value);
   };
-
   return (
-    <select value={selectedFilter} onChange={handleChange}>
+    <select className="item" value={selectedFilter} onChange={handleChange}>
       <option value="all">All</option>
       <option value="united">United</option>
       <option value="vegetables">Vegetables</option>

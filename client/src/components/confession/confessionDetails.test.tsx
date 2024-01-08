@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import ConfessionDetails from "./confessionDetails";
-import ConfessionPage from "./confession";
 import userEvent from "@testing-library/user-event";
 
 describe("confessionDetail", () => {
